@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="Kontakti.css">
+</head>
+
+<body>
+    <nav class="nav_links"> 
+        <a href="projekt.html"><h1><img class="logo" src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/16653.png" alt="logo"></h1></a>
+           <h1 class="naslov">FurryFriends</h1>
+           <div class="toggle-bar">
+               <div class="line"></div> 
+               <div class="line"></div>
+               <div class="line"></div>
+           </div>
+       <div class="nav-bar">
+             
+           <ul>
+               <li><a href="proizvodi.html">Naši proizvodi</a></li>
+               <li><a href="zivotinje.html">Životinje</a>
+                   <div class="bar">
+                       <ul>
+                           <li><a href="psi.html">Pas</a></li>
+                               <li><a href="macke.html">Mačka</a></li>
+                               <li><a href="pingvini.html">Pingvin</a></li>
+                               <li><a href="tigar.html">Tigar</a></li>
+                               <li><a href="medvedica.html">Sredozemna medvjedica</a></li>
+                       </ul>
+                   </div>
+               
+                   <li><a href="doniraj.html">Doniraj</a></li>
+                   <li><a href="kotakt.html">Kontakt</a></li>
+                   <li><a href="onama.html">O nama</a></li>
+                   <li><a href="https://zz-rijeka.org/kako-pomoci/" target="_blank">Kako pomoć?</a></li>
+           </ul>
+       </div>
+       </li>
+       </nav>
+    <br>
+    <br>
+
+
+
+    <div class="container">
+        <div class="row">
+                <h2>CONTACT US</h2>
+        </div>
+        <div class="row">
+                <h4>We'd love to hear from you!</h4>
+        </div>
+        <div class="w3-container">
+            <form class="form" id="addItemForm" action="korisnici.php" method="post">
+                <label for="">Unesite e-mail adresu:</label>
+                <input type="text" name="email" id="emailBox" class="w3-input w3-border">
+                <br>
+                <label for="">Unesite upit:</label>
+                <textarea name="upiti" id="poruka" cols="30" rows="10" class="w3-input w3-border"></textarea>
+                <br>
+                <button onclick="prikaziPoruku()" id="gumbic">Pošalji</button>
+            </form>
+        </div>
+        <div id="prikaz1"></div>
+        
+    </div>
+    <iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11217.78077659929!2d14.4282851!3d45.33982475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764a12dc7cbd24b%3A0x4b5bd8336066b8c6!2sStudentsko%20naselje%20Ivan%20Goran%20Kova%C4%8Di%C4%87!5e0!3m2!1shr!2shr!4v1699522143986!5m2!1shr!2shr" weight="600"  height="450"  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gumbic.addEventListener("click", function () {
+                // Dohvatite podatke iz polja forme
+                var email = document.getElementById("emailBox").value;
+                var upiti = document.getElementById("poruka").value;
+
+                // Slanje podataka na server (možete koristiti fetch, AJAX, ili drugu metodu)
+                // Primjer s fetch metodom:
+                fetch("korisnici.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: "emailBox=" + encodeURIComponent(email) +
+                        "&poruka=" + encodeURIComponent(upiti)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        // Ovdje možete ažurirati ili prikazati podatke na stranici ako je potrebno
+                        console.log("Server response:", data);
+
+                        // Provjerava uspješnost slanja upita
+                        if (data.includes("Upit je poslan!")) {
+                            alert("Došlo je do problema prilikom slanja upita.");
+                        } else {
+                            alert("Upit je uspjesno poslan!");
+                        }
+                    })
+                    .catch(error => console.error("Error sending data:", error));
+            });
+        });
+
+    </script>
+    <script src="menu.js"></script>
+
+</body>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    
+    <title>NašiProivodi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="nasi.css">
+    
+  </head>
+  <body>
+    <nav class="nav_links"> 
+        <a href="projekt.html"><h1><img class="logo" src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/16653.png" alt="logo"></h1></a>
+           <h1 class="naslov">FurryFriends</h1>
+           <div class="toggle-bar">
+               <div class="line"></div> 
+               <div class="line"></div>
+               <div class="line"></div>
+           </div>
+       <div class="nav-bar">
+             
+           <ul>
+               <li><a href="proizvodi.html">Naši proizvodi</a></li>
+               <li><a href="zivotinje.html">Životinje</a>
+                   <div class="bar">
+                       <ul>
+                           <li><a href="psi.html">Pas</a></li>
+                               <li><a href="macke.html">Mačka</a></li>
+                               <li><a href="pingvini.html">Pingvin</a></li>
+                               <li><a href="tigar.html">Tigar</a></li>
+                               <li><a href="medvedica.html">Sredozemna medvjedica</a></li>
+                       </ul>
+                   </div>
+               
+                   <li><a href="doniraj.html">Doniraj</a></li>
+                   <li><a href="kotakt.html">Kontakt</a></li>
+                   <li><a href="onama.html">O nama</a></li>
+                   <li><a href="https://zz-rijeka.org/kako-pomoci/" target="_blank">Kako pomoć?</a></li>                                 
+           </ul>
+           
+       </div>
+       </li>
+       </nav>
+        <a href="kosarica.php"><i class="fa fa-shopping-cart" style="font-size:50px;color:rgb(0, 0, 0)"></i></a> 
+        <p> Proizvodi u ponudi </p>
+               
+        <div class ="flexbox">
+            
+                    <div class="proizvod">
+                        
+                        <img src="https://www.petshop-x.hr/admin/uploads/products/thumbs/thumb2_WS_DO119971634650740.jpg" alt="Ogrlica">
+                      <h1> <br> Ogrlica za Pse</h1>
+                       <h2><br> Ogrlica za pse je udobna i<br> prilagodljiva vašem ljubimcu.</h2>
+                       <br> <h3><u>13.00$</u></h3>
+                    
+                            <form  action="dodaj_u_kosaricu.php" method="post">
+                                <input type="hidden" name="proizvod_id" value="1">
+                                <input type="hidden" name="cijena" value="13.00">
+                                <input type="submit" value="Dodaj u košaricu">
+                            </form>
+                        </div>
+                        
+                    <div class="proizvod">
+                        <img src="https://www.petshop-x.hr/admin/uploads/products/thumbs/thumb2_blue-dog-leash.png" alt="Povodac" >
+                      <h1><br>  Povodac </h1>
+                      <h2><br> Povodac je izdržljiv i <br>pogodan za razne životinje.</h2>
+                      <br>  <h3><u>15.00$</u></h3>
+                        
+                            <form  action="dodaj_u_kosaricu.php" method="post">
+                                <input type="hidden" name="proizvod_id" value="2">
+                                <input type="hidden" name="cijena" value="15.00">
+                                <input type="submit" value="Dodaj u košaricu">
+                            </form>
+                        </div>
+                    <div class="proizvod">
+                        <img src="https://shop-cdn-m.mediazs.com/bilder/trixie/meke/loptice/za/make/4/400/269019_pla_trixie_katzenspielzeug_softballe_hs_01_4.jpg" alt="Loptica" >
+                      <h1><br>  Loptica za Mačke </h1>
+                      <h2><br>  Loptica za mačke je igračka<br>koja će zabaviti vašeg ljubimca. </h2>
+                      <br> <h3><u>12.00$</u></h3>
+                        
+                            <form  action="dodaj_u_kosaricu.php" method="post">
+                                <input type="hidden" name="proizvod_id" value="3">
+                                <input type="hidden" name="cijena" value="12.00">
+                                <input type="submit" value="Dodaj u košaricu">
+                            </form>
+                    </div>
+                    <div class="proizvod">
+                        <img src="https://d17zv3ray5yxvp.cloudfront.net/variants/LgkNokYChAa1EhzTbHBzCEA9/57ed05bea98bceae5f0eaada26b69cee6c61471d3030f7123d212844a35eba04" alt="Hrana">
+                    <h1> <br>  Hrana za Pse</h1> 
+                    <h2> <br>  Hrana za pse je ukusna i<br> nutritivna hrana za vašeg psa.  </h2> 
+                      <br> <h3><u>50.00$</u></h3>
+                        
+                            <form  action="dodaj_u_kosaricu.php" method="post">
+                                <input type="hidden" name="proizvod_id" value="4">
+                                <input type="hidden" name="cijena" value="50.00">
+                                <input type="submit" value="Dodaj u košaricu">
+                            </form>
+                    </div>
+                    <div class="proizvod">
+                        <img src="https://d17zv3ray5yxvp.cloudfront.net/variants/p4mwLrkButBiwH6mrBqtc4gD/57ed05bea98bceae5f0eaada26b69cee6c61471d3030f7123d212844a35eba04" alt="HranaMace" >
+                   <h1>  <br>Hrana za Mačke</h1>
+                  <h2> <br>   Hrana za mačke je ukusna i<br> nutritivna hrana za vašu mačku.</h2>
+                    <br>  <h3><u>40.00$</u></h3>
+                        
+                            <form action="dodaj_u_kosaricu.php" method="post">
+                                <input type="hidden" name="proizvod_id" value="5">
+                                <input type="hidden" name="cijena" value="40.00">
+                                <input type="submit" value="Dodaj u košaricu">
+                            </form>
+                    </div>
+                        
+                    <div class="proizvod">
+                        <img src="https://www.grafocentar.hr/slike/velike/salica-zivotinjice-zuta-61445-2_1.jpg" alt="Salica" >
+                     <h1><br>   Šalica</h1> 
+                    <h2><br>  Šalice s motivima životinja za uživanje<br> u piću.</h2> 
+                     <br>  <h3><u>7.00$</u></h3>
+                     
+                            <form  action="dodaj_u_kosaricu.php" method="post">
+                                <input type="hidden" name="proizvod_id" value="6">
+                                <input type="hidden" name="cijena" value="7.00">
+                                <input type="submit" value="Dodaj u košaricu">
+                            </form>
+                    </div>
+        </div>
+    </section>
+    <script src="menu.js"></script>
+</body>
+</html>
