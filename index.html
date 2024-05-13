@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudski registar pretraživanje</title>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+        <h2>DJELATNOSTI</h2>
+        <template id='djelatnosti'>
+            <div class='CheckBox'>
+                <label><span id='imeDjelatnost'></span><input type='checkbox'></label>
+            </div>
+        </template>
+    </div>
+
+    <div class="section">
+        <h2>REGIJE</h2>
+        <template id='regije'>
+            <div class='CheckBox'>
+                <label><span id='imeRegije'></span><input type='checkbox'></label>
+            </div>
+        </template>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pravni oblik</h2>
+    <template id='pravni'>
+        <div class='CheckBox'>
+            <label><span id='imePrava'></span><input type='checkbox'></label>
+        </div>
+    </template>
+</div>
+</div>
+
+<button id="searchButton">Pronađi</button>
+<div id="genderResults"></div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
