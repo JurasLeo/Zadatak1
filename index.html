@@ -9,24 +9,25 @@
 </head>
 
 <body>
+
+
   <section>
-    <div class="container">
-      Djelatnosti:
-      <select class="form-select" id="djelatnostiDropdown" aria-label="Default select example">
+    <h1>Sudski Pretražitelj</h1>
+    
+      <h2>Djelatnosti:</h2>
+      <select class="form-select" id="djelatnostiDropdown">
       </select>
       <div class="row">
         <div class="col-lg-6 col-12">
           <div class="form-check">
             <h2>Sudovi:</h2>
-            <label class="form-check-label" for="flexCheckDefault" id="sudovi">
-            </label>
+            <select class="form-select" id="sudovi"></select>
           </div>
         </div>
         <div class="col-lg-6 col-12">
           <div class="form-check">
-            Naziv vrste pravnog oblika:
-            <label class="form-check-label" for="flexCheckDefault" id="pravni">
-            </label>
+            <h2>Naziv vrste pravnog oblika:</h2>
+            <select class="form-select" id="pravni"></select>
           </div>
         </div>
       </div>
@@ -35,12 +36,40 @@
 
 
   <section>
-    <h1>Pretraga Tvrtke po MBS</h1>
-    <input type="text" id="mbsInput" placeholder="Unesite MBS">
-    <button id="btn">Pretraži</button>
-    <div id="results"></div>
-  </section>
 
+
+    <h2>Pretraga Tvrtke po MBS</h2>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        OIB
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        MBS
+      </label>
+    </div>
+
+    <input type="text" id="mbsInput" placeholder="Unesite MBS/OIB">
+    <button id="btn">Pretraži</button>
+  <div>
+    <div>
+      <h4>Nadležni sud: <span id="nadlezni_sud"></span></h4>
+      <h4>OIB: <span id="oib"></span></h4>
+      <h4>Status: <span id="status"></span></h4>
+      <h4>Bez postupka: <span id="postupak"></span></h4>
+      <h4>Tvrtka: <span id="Tvrtka"></span></h4>
+      <h4>Email: <span id="email"></span></h4>
+      <h4>Temeljni kapital: <span id="kapital"></span></h4>
+      <h4>Pravni oblik: <span id="pravo_oblik"></span></h4>
+      <h4>Osnivači: <span id="osnivaci"></span></h4>
+      <h4>Ovlaštene osobe: <span id="ovlasteni"></span></h4>
+    </div>
+</section>
 
   <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
