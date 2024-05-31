@@ -1,9 +1,7 @@
 
 const url2 = 'https://sudreg-data.gov.hr/api/javni/dokumentacija/open_api ';
-
 const url = 'https://sudreg-data.gov.hr/api/javni/evidencijske_djelatnosti';
 const url3 = 'https://sudreg-data.gov.hr/api/javni/tvrtke';
-const accessToken = 'OjIXbOJ4lR6bc_-5MolLSg';
 
 // API DOKUMENT /////
 fetch(url2)
@@ -23,9 +21,13 @@ fetch(url2)
 //////////////
 
 ///DJELATNOSTI
+const search = document.getElementById('btnUnesi').addEventListener('click', tokenZahtjev)
+function tokenZahtjev() {
+    let tokenValue = document.getElementById('InpuToken').value;
+
 axios.get(url, {
     headers: {
-        'Authorization': `Bearer ${accessToken}`
+        'Authorization': `Bearer ${tokenValue}`
     }
 })
     .then(response => {
@@ -35,7 +37,7 @@ axios.get(url, {
         data.forEach(item => {
             if (item.djelatnost_tekst.trim() !== '') {
                 const option = document.createElement('option');
-                option.value = item;
+                option.value = item.id;
                 option.textContent = item.djelatnost_tekst;
                 djelatnostiDropdown.appendChild(option);
             }
@@ -52,18 +54,18 @@ const urlSudovi = 'https://sudreg-data.gov.hr/api/javni/sudovi';
 
 axios.get(urlSudovi, {
     headers: {
-        'Authorization': `Bearer ${accessToken}`
+        'Authorization': `Bearer ${tokenValue}`
     }
 })
     .then(response => {
         const data = response.data;
         console.log(data);
         data.forEach(item => {
-                const option = document.createElement('option');
-                option.value = item;
-                option.textContent = item.naziv;
-                sudovi.appendChild(option);
-            
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.naziv;
+            sudovi.appendChild(option);
+
         });
     })
     .catch(error => {
@@ -75,28 +77,30 @@ const urlprava = 'https://sudreg-data.gov.hr/api/javni/vrste_pravnih_oblika';
 
 axios.get(urlprava, {
     headers: {
-        'Authorization': `Bearer ${accessToken}`
+        'Authorization': `Bearer ${tokenValue}`
     }
 })
     .then(response => {
         const data = response.data;
         console.log(data);
         data.forEach(item => {
-                const option = document.createElement('option');
-                option.value = item;
-                option.textContent = item.naziv;
-                pravni.appendChild(option);
-            
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.naziv;
+            pravni.appendChild(option);
+
         });
     })
     .catch(error => {
         console.log(error);
     });
 /////DetaljiSubjekta
+
 const urlemail = 'https://sudreg-data.gov.hr/api/javni/email_adrese'
 const urlsubjekta = 'https://sudreg-data.gov.hr/api/javni/detalji_subjekta';
 const urlKapitala = 'https://sudreg-data.gov.hr/api/javni/temeljni_kapitali';
-const search = document.getElementById('btn').addEventListener('click',searchCompany)  
+
+const search = document.getElementById('btn').addEventListener('click', searchCompany)
 
 async function searchCompany() {
     const mbsInput = document.getElementById('mbsInput').value;
@@ -108,10 +112,10 @@ async function searchCompany() {
     try {
         const response = await fetch(`${urlsubjekta}?tip_identifikatora=mbs&identifikator=${mbsInput}`, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${tokenValue}`
             }
         });
-        
+
         const data = await response.json();
         console.log(data)
 
@@ -119,20 +123,21 @@ async function searchCompany() {
         sifra_zupanije = data.sjediste.sifra_zupanije;
         pravo_oblik_id = data.vrsta_pravnog_oblika_id;
         mbsTvrtke = data.mbs;
+        
 
         ////UPIT ZA SUDOVE 
         const responseSudovi = await fetch(urlSudovi, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${tokenValue}`
             }
         });
         const dataSuda = await responseSudovi.json();
         const sud = dataSuda.find(sud => sud.sifra === sifra_zupanije);
-        
+
         //UPIT ZA PRAVNE OBLIKE
         const responsePravni = await fetch(urlprava, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${tokenValue}`
             }
         });
         const dataPrava = await responsePravni.json();
@@ -141,7 +146,7 @@ async function searchCompany() {
         /// UPIT ZA TEMELJNI KAPITAL-TRAZI SE PREKO ODABRANOG MBS-a
         const kapital = await fetch(urlKapitala, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${tokenValue}`
             }
         });
         const dataKapital = await kapital.json();
@@ -150,33 +155,34 @@ async function searchCompany() {
         ///UPIT ZA EMAIL TVRTKE-TRAZI SE PREKO ODABRANOG MBS-a
         const email = await fetch(urlemail, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${tokenValue}`
             }
         });
         const dataEmail = await email.json();
         const emailAdrese = dataEmail.find(emailAdrese => emailAdrese.mbs === mbsTvrtke);
-
+        
         ///ISPIS PODATAKA
         document.getElementById('status').textContent = data.status;
         document.getElementById('oib').textContent = data.oib;
         document.getElementById('Tvrtka').textContent = data.tvrtka.ime;
         document.getElementById('nadlezni_sud').textContent = sud.naziv;
         document.getElementById('pravo_oblik').textContent = pravo_oblik.naziv;
-        
+
         //PROVJERA AKO IMA PODATAKA ZA KAPITAL I EMAIL
-        if(temeljniKapital && temeljniKapital.iznos){
+        if (temeljniKapital && temeljniKapital.iznos) {
             document.getElementById('kapital').textContent = temeljniKapital.iznos;
         }
-        else{
-            document.getElementById('kapital').textContent = "N/A";
+        else {
+            document.getElementById('kapital').textContent = "Nema podatka";
         }
-        if (emailAdrese && data.email_adrese.adresa) {
+        if (emailAdrese && emailAdrese.adresa) {
             document.getElementById('email').textContent = emailAdrese.adresa;
         } else {
-            document.getElementById('email').textContent = 'N/A';
+            document.getElementById('email').textContent = 'Nema podatka';
         }
-     
+
     } catch (error) {
         console.error('Greška:', error);
     }
+}
 }

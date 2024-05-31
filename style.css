@@ -11,20 +11,12 @@
     color: #343a40;
     padding: 20px;
   }
+
   h1 {
     text-align: center;
     margin-bottom: 20px;
   }
-  
-  #drzave,
-  #pravni {
-    text-align: left; 
-  }
-  .form-check{
-    display:block;
-  }
-  
-  #djelatnostiDropdown,
+
   #mbsInput {
     width: 100%;
     padding: 10px;
@@ -34,7 +26,6 @@
     display: block;
   }
   
-
   #btn {
     display: block;
     width: 100%;
@@ -45,6 +36,7 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    margin-bottom: 20px;
   }
   
   #btn:hover {
@@ -58,6 +50,20 @@
     border-radius: 5px;
     background-color: #ffffff;
   }
-  
-
-  
+  #btnUnesi{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;  
+  }
+  #InpuToken{
+    width: 320px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: block;
+    margin-right: 15px;
+  }
