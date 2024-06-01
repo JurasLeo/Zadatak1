@@ -1,69 +1,89 @@
 @import url('./node_modules/bootstrap/dist/css/bootstrap.min.css');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #f8f9fa;
-    color: #343a40;
-    padding: 20px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+body {
+  background-color: #c8d7e8;
+  color: #000000;
+  padding: 20px;
+}
 
-  #mbsInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: block;
-  }
-  
-  #btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-  
-  #btn:hover {
-    background-color: #0056b3;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  #results {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    background-color: #ffffff;
-  }
-  #btnUnesi{
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;  
-  }
-  #InpuToken{
-    width: 320px;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: block;
-    margin-right: 15px;
-  }
+#mbsInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#btn {
+  display: flex;
+  width: 50%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#btn:hover {
+  background-color: #0056b3;
+}
+
+#results {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+#btnUnesi {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#InpuToken {
+  width: 320px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: block;
+  margin-right: 15px;
+}
+
+.form-check{
+  margin-left:20px ;
+}
+#btnPretrazitelj{
+  display: flex;
+  width: 50%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+  justify-content: center;
+  margin-top: 20px;
+}

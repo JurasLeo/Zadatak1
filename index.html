@@ -15,10 +15,7 @@
 
       <input type="text" id="InpuToken" placeholder="Unesite token">
 
-      <button id="btnUnesi" 
-      class="btnUnesi p-2 h-50 w-15" 
-      data-bs-toggle="tooltip" 
-      data-bs-placement="bottom"
+      <button id="btnUnesi" class="btnUnesi p-2 h-50 w-15" data-bs-toggle="tooltip" data-bs-placement="bottom"
         title="Unesite token koji dobijete pomocu comand promt-a">
         Unesi</button>
 
@@ -28,17 +25,23 @@
         <div class="col-lg-8 col-12">
           <h2>Djelatnosti:</h2>
           <select class="form-select" id="djelatnostiDropdown">
+            <option  disabled selected>Izaberite djelatnost</option>
           </select>
           <div class="col-lg-8 col-12">
             <div class="form-check">
               <h2>Sudovi:</h2>
-              <select class="form-select" id="sudovi"></select>
+              <select class="form-select" id="sudovi">
+              <option  disabled selected>Izaberite sud</option>
+            </select>
             </div>
           </div>
           <div class="col-lg-8 col-12">
             <div class="form-check">
               <h2>Naziv vrste pravnog oblika:</h2>
-              <select class="form-select" id="pravni"></select>
+              <select class="form-select" id="pravni">
+              <option  disabled selected>Izaberite vrstu pravnog oblika</option>
+            </select>
+            <button id="btnPretrazitelj">Pretraži</button>
             </div>
           </div>
         </div>
@@ -47,8 +50,8 @@
   </section>
 
 
-  <section>
-    <h2>Pretraga Tvrtke po MBS</h2>
+  <section class="p-4">
+    <h2>Odabir pretrage MBS/OIB</h2>
 
     <div class="form-check">
       <input class="form-check-input" type="radio" name="flexRadioDefault" id="oibTrazi">
@@ -58,7 +61,7 @@
     </div>
 
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="mbsTrazi" checked>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="mbsTrazi">
       <label class="form-check-label" for="flexRadioDefault2">
         MBS
       </label>
