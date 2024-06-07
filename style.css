@@ -94,10 +94,11 @@ h1 {
 
 .form-select{
   width: 60%;
-
 }
-
-
+.custom-dropdown option {
+  font-size: 12px; 
+  padding: 2px; 
+}
 .hidden {
   display: none;
 }
