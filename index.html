@@ -11,7 +11,7 @@
 <body>
   <section>
     <h1>Sudski Pretražitelj</h1>
-    <div class="container-fluid d-flex aling-items-start justify-content-start">
+    <div class="container-fluid d-flex aling-items-start justify-content-start visible" id="token">
 
       <input type="text" id="InpuToken" placeholder="Unesite token">
 
@@ -20,28 +20,32 @@
         Unesi</button>
 
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-8 col-12">
-          <h2>Djelatnosti:</h2>
-          <select class="form-select" id="djelatnostiDropdown">
-            <option  disabled selected>Izaberite djelatnost</option>
-          </select>
-          <div class="col-lg-8 col-12">
+    <div id="content" class="hidden">
+      <div class="container-fluid m-3">
+        <div class="row g-4">
+          <div class="col-lg-8 col-12 p-2">
             <div class="form-check">
-              <h2>Sudovi:</h2>
-              <select class="form-select" id="sudovi">
-              <option  disabled selected>Izaberite sud</option>
-            </select>
+              <h2>Djelatnosti:</h2>
+              <select class="form-select" id="djelatnostiDropdown">
+                <option disabled selected>Izaberite djelatnost</option>
+              </select>
             </div>
-          </div>
-          <div class="col-lg-8 col-12">
-            <div class="form-check">
-              <h2>Naziv vrste pravnog oblika:</h2>
-              <select class="form-select" id="pravni">
-              <option  disabled selected>Izaberite vrstu pravnog oblika</option>
-            </select>
-            <button id="btnPretrazitelj">Pretraži</button>
+            <div class="col-lg-8 col-12 p-2">
+              <div class="form-check">
+                <h2>Sudovi:</h2>
+                <select class="form-select" id="sudovi">
+                  <option disabled selected>Izaberite sud</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-8 col-12 p-2">
+              <div class="form-check">
+                <h2>Naziv vrste pravnog oblika:</h2>
+                <select class="form-select" id="pravni">
+                  <option disabled selected>Izaberite vrstu pravnog oblika</option>
+                </select>
+                <button id="btnPretrazitelj">Pretraži</button>
+              </div>
             </div>
           </div>
         </div>
@@ -50,7 +54,7 @@
   </section>
 
 
-  <section class="p-4">
+  <section class="p-4 hidden" id="secondSection">
     <h2>Odabir pretrage MBS/OIB</h2>
 
     <div class="form-check">
@@ -70,7 +74,7 @@
     <input type="text" id="mbsInput" placeholder="Unesite MBS/OIB">
     <button id="btn">Pretraži</button>
 
-    <table class="table table-hover">
+    <table class="table table-hover hidden" id="table">
       <thead>
         <tr>
           <th>Nadležni sud:</th>
@@ -105,7 +109,7 @@
 
   <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" type=""></script>
 </body>
 
 </html>
