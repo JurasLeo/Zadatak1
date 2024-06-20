@@ -11,7 +11,7 @@
 <body>
   <section>
     <h1>Sudski Pretražitelj</h1>
-    <div class="container-fluid d-flex aling-items-start justify-content-start visible" id="token">
+    <div class="container d-flex aling-items-center justify-content-center p-2" id="token">
 
       <input type="text" id="InpuToken" placeholder="Unesite token">
 
@@ -26,28 +26,31 @@
           <div class="col-lg-8 col-12 p-2">
             <div class="form-check">
               <h2>Djelatnosti:</h2>
-              <select class="form-select custom-dropdown"id="djelatnostiDropdown">
+              <select class="form-select custom-dropdown" id="djelatnostiDropdown">
                 <option class="option" disabled selected>Izaberite djelatnost</option>
               </select>
+              <p id="selectedDjelatnost"></p>
             </div>
           </div>
-            <div class="col-lg-8 col-12 p-2">
-              <div class="form-check">
-                <h2>Sudovi:</h2>
-                <select class="form-select" id="sudovi">
-                  <option disabled selected>Izaberite sud</option>
-                </select>
-              </div>
+          <div class="col-lg-8 col-12 p-2">
+            <div class="form-check">
+              <h2>Sudovi:</h2>
+              <select class="form-select" id="sudovi">
+                <option disabled selected>Izaberite sud</option>
+              </select>
+              <p id="selectedSudovi"></p>
             </div>
-            <div class="col-lg-8 col-12 p-2">
-              <div class="form-check">
-                <h2>Naziv vrste pravnog oblika:</h2>
-                <select class="form-select" id="pravni">
-                  <option disabled selected>Izaberite vrstu pravnog oblika</option>
-                </select>
-                <button id="btnPretrazitelj">Pretraži</button>
-              </div>
-            </div>   
+          </div>
+          <div class="col-lg-8 col-12 p-2">
+            <div class="form-check">
+              <h2>Naziv vrste pravnog oblika:</h2>
+              <select class="form-select" id="pravni">
+                <option disabled selected>Izaberite vrstu pravnog oblika</option>
+              </select>
+              <p id="selectedPrava"></p>
+              <button id="btnPretrazitelj">Pretraži</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

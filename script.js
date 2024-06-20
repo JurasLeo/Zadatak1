@@ -1,3 +1,5 @@
+/*curl -i -k --user UfZO5UEl44EcWzix66jtwQ..:Qq-cyYM8MEcRj0Exn_B23w.. --data "grant_type=client_credentials" https://sudreg-data.gov.hr/api/oauth/token*/
+
 const url2 = 'https://sudreg-data.gov.hr/api/javni/dokumentacija/open_api ';
 const url = 'https://sudreg-data.gov.hr/api/javni/evidencijske_djelatnosti';
 
@@ -24,7 +26,9 @@ const search = document.getElementById('btnUnesi').addEventListener('click', tok
 function tokenZahtjev() {
 
     let tokenValue = document.getElementById('InpuToken').value;
-///DJELATNOSTI
+    const djelatnostiDropdown = document.getElementById("djelatnostiDropdown");
+    const selectedDjelatnost = document.getElementById("selectedDjelatnost");
+    ///DJELATNOSTI
     axios.get(url, {
         headers: {
             'Authorization': `Bearer ${tokenValue}`
@@ -40,8 +44,16 @@ function tokenZahtjev() {
                     option.value = item.id;
                     option.textContent = item.djelatnost_tekst;
                     djelatnostiDropdown.appendChild(option);
+
                 }
             });
+            djelatnostiDropdown.addEventListener("change", () => {
+                const djelatnostSelect = djelatnostiDropdown.options[djelatnostiDropdown.selectedIndex].text;
+                selectedDjelatnost.textContent = `Odabrana djelatnost: ${djelatnostSelect}`;
+                console.log(djelatnostSelect)
+
+            });
+
         })
         .catch(error => {
             console.log(error);
@@ -69,6 +81,12 @@ function tokenZahtjev() {
                 option.textContent = item.naziv;
                 sudovi.appendChild(option);
 
+                sudovi.addEventListener("change", () => {
+                    const selectedOption = sudovi.options[sudovi.selectedIndex].text;
+                    selectedSudovi.textContent = `Odabran sud: ${selectedOption}`;
+
+                });
+
             });
         })
         .catch(error => {
@@ -95,6 +113,12 @@ function tokenZahtjev() {
                 option.textContent = item.naziv;
                 pravni.appendChild(option);
 
+                pravni.addEventListener("change", () => {
+                    const selectedOption = pravni.options[pravni.selectedIndex].text;
+                    selectedPrava.textContent = `Odabrana prava: ${selectedOption}`;
+
+                });
+
             });
         })
         .catch(error => {
@@ -109,7 +133,7 @@ function tokenZahtjev() {
     const urlemail = 'https://sudreg-data.gov.hr/api/javni/email_adrese'
     const urlsubjekta = 'https://sudreg-data.gov.hr/api/javni/detalji_subjekta';
     const urlKapitala = 'https://sudreg-data.gov.hr/api/javni/temeljni_kapitali';
-//////////////////////////////////TRAZI MBS///////////////////////////////////////////////////////////////
+    //////////////////////////////////TRAZI MBS///////////////////////////////////////////////////////////////
     async function searchMBS() {
         const mbsInput = document.getElementById('mbsInput').value;
         if (!mbsInput || mbsInput.length !== 8) {
@@ -201,10 +225,10 @@ function tokenZahtjev() {
 
     document.getElementById('token').classList.remove('visible');
     document.getElementById('token').classList.add('hidden');
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////TRAZI OIB////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////TRAZI OIB////////////////////////////////////////////////////////////////////////////////////////////////////
     async function searchOIB() {
         const mbsInput = document.getElementById('mbsInput').value;
         if (!mbsInput || mbsInput.length !== 11) {
@@ -296,33 +320,34 @@ function tokenZahtjev() {
 
     document.getElementById('token').classList.remove('visible');
     document.getElementById('token').classList.add('hidden');
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const oibRadio = document.getElementById('oibTrazi');
-const mbsRadio = document.getElementById('mbsTrazi');
-const pretrazi = document.getElementById('btn');
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const oibRadio = document.getElementById('oibTrazi');
+    const mbsRadio = document.getElementById('mbsTrazi');
+    const pretrazi = document.getElementById('btn');
 
 
-let currentSearchFunction = null;
+    let currentSearchFunction = null;
 
-oibRadio.addEventListener('click', () => {
-    currentSearchFunction = searchOIB;
-});
+    oibRadio.addEventListener('click', () => {
+        currentSearchFunction = searchOIB;
+    });
 
-mbsRadio.addEventListener('click', () => {
-    currentSearchFunction = searchMBS;
-});
+    mbsRadio.addEventListener('click', () => {
+        currentSearchFunction = searchMBS;
+    });
 
-pretrazi.addEventListener('click', () => {
-    if (currentSearchFunction) {
-        currentSearchFunction();
-    } else {
-        alert('Molimo odaberite opciju pretrage (OIB ili MBS)');
-    }
-});
+    pretrazi.addEventListener('click', () => {
+        if (currentSearchFunction) {
+            currentSearchFunction();
+        } else {
+            alert('Molimo odaberite opciju pretrage (OIB ili MBS)');
+        }
+    });
 
-/////////////////////////////////////
+    /////////////////////////////////////
+
 
 }
 
