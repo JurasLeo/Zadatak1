@@ -4,9 +4,7 @@
   "description": "Sudski registar projekt",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "echo \\\\\\\"Error: no test specified\\\\\\\" && exit 1"
   },
   "keywords": [
     "projekt",
@@ -18,12 +16,8 @@
   "author": "Leo Juras",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.7.2",
-    "boostrap": "^2.0.0",
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
-    "vite": "^5.2.12"
-  },
-  "devDependencies": {
-    "sass": "^1.77.4"
+    "vite": "^5.2.11"
   }
 }

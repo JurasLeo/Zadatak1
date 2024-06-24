@@ -47,12 +47,7 @@ function tokenZahtjev() {
 
                 }
             });
-            djelatnostiDropdown.addEventListener("change", () => {
-                const djelatnostSelect = djelatnostiDropdown.options[djelatnostiDropdown.selectedIndex].text;
-                selectedDjelatnost.textContent = `Odabrana djelatnost: ${djelatnostSelect}`;
-                console.log(djelatnostSelect)
-
-            });
+            
 
         })
         .catch(error => {
@@ -81,12 +76,6 @@ function tokenZahtjev() {
                 option.textContent = item.naziv;
                 sudovi.appendChild(option);
 
-                sudovi.addEventListener("change", () => {
-                    const selectedOption = sudovi.options[sudovi.selectedIndex].text;
-                    selectedSudovi.textContent = `Odabran sud: ${selectedOption}`;
-
-                });
-
             });
         })
         .catch(error => {
@@ -113,12 +102,6 @@ function tokenZahtjev() {
                 option.textContent = item.naziv;
                 pravni.appendChild(option);
 
-                pravni.addEventListener("change", () => {
-                    const selectedOption = pravni.options[pravni.selectedIndex].text;
-                    selectedPrava.textContent = `Odabrana prava: ${selectedOption}`;
-
-                });
-
             });
         })
         .catch(error => {
@@ -127,6 +110,24 @@ function tokenZahtjev() {
 
     document.getElementById('content').classList.remove('hidden');
     document.getElementById('content').classList.add('visible');
+
+/////////////////////////////////////ISPIS ODABRANIH SELECTA//////////////////////////////////////////
+    function selectedOption() {
+        djelatnostiDropdown.addEventListener("change", () => {
+            const djelatnostSelect = djelatnostiDropdown.options[djelatnostiDropdown.selectedIndex].text;
+            console.log(djelatnostSelect)
+        });
+        sudovi.addEventListener("change", () => {
+            const selectedSud = sudovi.options[sudovi.selectedIndex].text;
+            console.log(selectedSud)
+        });
+        pravni.addEventListener("change", () => {
+            const selectedPrava = pravni.options[pravni.selectedIndex].text;
+            console.log(selectedPrava)
+        });
+    }
+
+    selectedOption();
 
     /////DetaljiSubjekta
 
@@ -347,6 +348,91 @@ function tokenZahtjev() {
     });
 
     /////////////////////////////////////
+
+    const mbsListUrl = 'https://sudreg-data.gov.hr/api/javni/evidencijske_djelatnosti';
+const detaljiSubjektaUrl = 'https://sudreg-data.gov.hr/api/javni/detalji_subjekta';
+
+// Funkcija za dohvat MBS-ova
+async function fetchMbsList() {
+    try {
+        const response = await fetch(mbsListUrl,{
+            headers: {
+                'Authorization': `Bearer ${tokenValue}`
+            }
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+
+        // Filtriramo jedinstvene MBS-ove
+        const uniqueMbsList = Array.from(new Set(data.map(item => item.mbs)));
+
+        return uniqueMbsList; // Vraća niz jedinstvenih MBS-ova
+    } catch (error) {
+        console.error('Greška prilikom dohvaćanja popisa MBS-ova:', error);
+        return []; // Vraća prazan niz u slučaju greške
+    }
+}
+
+// Funkcija za dohvat detalja subjekta za određeni MBS
+async function fetchDetaljiSubjekta(mbs) {
+    try {
+        const url = `${detaljiSubjektaUrl}?tip_identifikatora=mbs&identifikator=${mbs}`;
+        const response = await fetch(url,{
+            headers: {
+                'Authorization': `Bearer ${tokenValue}`
+            }
+        });
+
+        if (!response.ok) {
+            if (response.status === 400) {
+                throw new Error('Bad Request - provjerite format parametra mbs ili podršku API-ja za taj MBS');
+            } else {
+                throw new Error(`Network response was not ok - status ${response.status}`);
+            }
+        }
+
+        const data = await response.json();
+        return data; // Vraća objekt sa detaljima subjekta
+    } catch (error) {
+        console.error(`Greška prilikom dohvaćanja detalja za MBS ${mbs}:`, error);
+        return null; // Vraća null u slučaju greške
+    }
+}
+
+
+// Glavna funkcija koja spaja dohvaćanje popisa MBS-ova i detalja subjekata
+async function main() {
+    try {
+        const mbsList = await fetchMbsList();
+
+        if (mbsList.length === 0) {
+            console.log('Nema dostupnih MBS-ova za obradu.');
+            return;
+        }
+
+        // Iteriramo kroz svaki MBS i dohvaćamo detalje subjekta
+        for (let i = 0; i < mbsList.length; i++) {
+            const mbs = mbsList[i];
+            const detaljiSubjekta = await fetchDetaljiSubjekta(mbs);
+
+            if (detaljiSubjekta) {
+                console.log(`Detalji za MBS ${mbs}:`, detaljiSubjekta);
+                // Ovdje možete dalje obrađivati detalje po potrebi
+            } else {
+                console.log(`Detalji za MBS ${mbs} nisu dostupni.`);
+            }
+        }
+    } catch (error) {
+        console.error('Greška pri izvršavanju glavne funkcije:', error);
+    }
+}
+
+// Pokretanje glavne funkcije
+main();
+
+
 
 
 }
