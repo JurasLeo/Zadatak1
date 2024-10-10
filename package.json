@@ -1,0 +1,23 @@
+{
+  "name": "sudskiregistar",
+  "version": "1.0.0",
+  "description": "Sudski registar projekt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\\\\\"Error: no test specified\\\\\\\" && exit 1"
+  },
+  "keywords": [
+    "projekt",
+    "sudski",
+    "djelatnosti",
+    "regije",
+    "pravo"
+  ],
+  "author": "Leo Juras",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "vite": "^5.2.11"
+  }
+}
