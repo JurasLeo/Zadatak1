@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>PTJP</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-xl text-light">
+        <div class="container fs-5">
+            <span class="navbar-brand fs-2">Kamen & More</span>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="recenzije.htm" class="nav-link">Recenzije</a></li>
+                    <li class="nav-item"><a href="galerija.html" class="nav-link">Galerija</a></li>
+                    <li class="nav-item"><a href="zanimljivosti.html" class="nav-link">Zanimljivosti</a></li>
+                    <li class="nav-item"><a href="aboutus.html" class="nav-link">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="line"></div>
+    <section class="section1 hero text-light text-center">
+
+        <div class="container d-flex flex-column align-items-center justify-content-center">
+            <h1 class="display-1 fw-bold mt-3">Welcome to <span class="text-warning">Kamen & More</span></h1>
+            <p class="lead my-4 fw-bold fs-4 fs-xl-3 p-3">
+                Embark on a flavorful journey with mouthwatering recipes, top restaurant, and expert food reviews. Discover new tastes, 
+                hidden gems, and culinary experiences that will inspire your next food adventure. 
+                Let the world of exceptional dining await you! From innovative dishes to classic comfort foods, every bite promises to be an exciting exploration. 
+                Unleash your inner food lover and savor every moment of your culinary quest!
+            </p>
+            <a href="blog.html" class="btn btn-warning btn-lg shadow mt-5">Get Started</a>
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- Daily Menu -->
+    <section class="p-5 bg-dark text-light">
+        <div class="container text-center">
+            <h2 class="display-4 mb-4">Daily Menu</h2>
+            <div class="row g-4">
+                <div class="col-md-4 menu-item">
+                    <img src="img/pexels-shameel-mukkath-3421394-5639416.jpg" class="d-block w-100 rounded"
+                        alt="starter">
+                    <h3 class="fw-bold mt-3">Starter</h3>
+                    <p class="fs-5">Fresh tomato and basil bruschetta served with olive oil.</p>
+                </div>
+                <div class="col-md-4 menu-item">
+                    <img src="img/pexels-sohanikamat-8284645.jpg" class="d-block w-100 rounded" alt="main course">
+                    <h3 class="fw-bold mt-3">Main Course</h3>
+                    <p class="fs-5">Herb-crusted chicken breast with roasted vegetables and garlic mashed potatoes.</p>
+                </div>
+                <div class="col-md-4 menu-item">
+                    <img src="img/pexels-skilletsandpots-1707920.jpg" class="d-block w-100 rounded" alt="dessert">
+                    <h3 class="fw-bold mt-3">Dessert</h3>
+                    <p class="fs-5">Classic tiramisu with a touch of espresso and cocoa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slideshow Section -->
+<section class="p-5 bg-light">
+    <div class="container text-center">
+        <h2 class="display-4 mb-4">Discover More</h2>
+        <div class="row g-4">
+            <!-- Chef's Special -->
+            <div class="col-xl-4">
+                <div id="chefSpecial" class="carousel slide shadow" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/spec1.jpg" 
+                                 class="d-block w-100 rounded" alt="Chef's Special 1">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Chef's Special</h5>
+                                <p>Grilled tuna with a citrus glaze.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/spec2.jpg" 
+                                 class="d-block w-100 rounded" alt="Chef's Special 2">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Chef's Special</h5>
+                                <p>Chicken breast in a mushroom and cream sauce.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/spec3.jpg" 
+                                 class="d-block w-100 rounded" alt="Chef's Special 3">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Chef's Special</h5>
+                                <p>Chocolate hazelnut tart.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#chefSpecial" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#chefSpecial" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Events Carousel -->
+            <div class="col-xl-4">
+                <div id="eventsCarousel" class="carousel slide shadow" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/hrv1.jpg" 
+                                 class="d-block w-100 rounded" alt="Event 1">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Dalmatian Prosciutto and Cheese:</h5>
+                                <p>A platter of dried Dalmatian prosciutto, homemade cheese, olives, and fresh bread.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/hrv2.jpg" 
+                                 class="d-block w-100 rounded" alt="Event 2">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Traditional Peka Dish</h5>
+                                <p>A Croatian specialty prepared under a bell-shaped lid, featuring lamb or veal with vegetables and herbs</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/hrv3.jpg" 
+                                 class="d-block w-100 rounded" alt="Event 3">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Black Risotto</h5>
+                                <p>A delicate black risotto made with cuttlefish, olive oil, and wine, a true Dalmatian delight.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu Classics -->
+            <div class="col-xl-4">
+                <div id="menuClassics" class="carousel slide shadow" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/clas1.jpg" 
+                                 class="d-block w-100 rounded" alt="Classic Dish 1">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Pizza Margherita</h5>
+                                <p>A classic with tomatoes, mozzarella, and basil.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/clas2.jpg" 
+                                 class="d-block w-100 rounded" alt="Classic Dish 2">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Burger with Fries</h5>
+                                <p>Irresistible burger with homemade fries.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/clas3.jpg" 
+                                 class="d-block w-100 rounded" alt="Classic Dish 3">
+                            <div class="carousel-caption bg-light text-dark rounded">
+                                <h5>Pasta Carbonara</h5>
+                                <p>Creamy pasta with pancetta and eggs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#menuClassics" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#menuClassics" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="p-4 bg-dark ">
+        <div class="contanier">
+            <div class="row g-4">
+                <div class="col-md">
+                    <h2 class="text-center text-light mb-4">Contact info</h2>
+                    <ul class="list-group list-group-flush lead ">
+                        <li class="list-group-item bg-dark text-light">
+                            <span class="fw-bold">Location:</span>
+                            Ul. Franje Čandeka 4, 51000, Rijeka
+                        </li>
+                        <li class="list-group-item bg-dark text-light">
+                            <span class="fw-bold">Phone:</span>
+                            0915879216
+                        </li>
+                        <li class="list-group-item bg-dark text-light">
+                            <span class="fw-bold">Email:</span>
+                            markicmauro@web.net
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <p>&copy; 2024 PTJP | Made with ❤️ by Food Enthusiasts</p>
+            <a href="index.html" class="btn btn-outline-light btn-sm">Back to Top</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        
+</body>
+
+</html>
